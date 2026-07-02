@@ -27,21 +27,16 @@
 
 
  <!-- ここから僕の魔法だよ！ -->
- 
+
 
 <script>
+  // 1. まずURLをチェックする門番の準備
   var params = new URLSearchParams(window.location.search);
   var book = params.get("book");
+  var correctPassword = "";
 
-  // 1話はそのまま通す
-  if (book === "../bibi-bookshelf/ep1.epub") {
-      // 通過！
-  } 
-  else if (book) {
-    var correctPassword = "";
-
-    // ここを今のファイル名と完全に一致させる！
-    if (book === "../bibi-bookshelf/ep2.epub") { correctPassword = "1225"; }
+  // 2. パスワードの確認（ここが門番！）
+  if (book === "../bibi-bookshelf/ep2.epub") { correctPassword = "1225"; }
     else if (book === "../bibi-bookshelf/ep3.epub") { correctPassword = "0214mm"; }
     else if (book === "../bibi-bookshelf/ep4.epub") { correctPassword = "5847"; }
     else if (book === "../bibi-bookshelf/ep5.epub") { correctPassword = "6755"; }
@@ -50,21 +45,24 @@
     else if (book === "../bibi-bookshelf/ep8.epub") { correctPassword = "7599"; }
     else if (book === "../bibi-bookshelf/ep9.epub") { correctPassword = "9705"; }
     else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }
-　　
 
-
-　　Bibi.start({
-    // ...中略...
-    "disable-copy": true, // これが「コピー・保存禁止」の魔法だよ！
-    "trust-all-content": true,
-});
-    // 門番起動！
-    var pw = prompt("パスワードを入力してください：");
-    if (pw !== correctPassword) {
-      alert("パスワードが違います。");
-      window.location.href = "https://hinokilove.github.io"; // 元のサイトに戻る
-    }
+      
+      var pw = prompt("パスワードを入力してください：");
+      if (pw !== correctPassword) {
+          alert("パスワードが違います。");
+          window.location.href = "https://hinokilove.github.io/vm/bibi/index.html"; 
+          throw new Error("終了"); // これで門番が止まるよ！
+      }
   }
+
+  // 3. 門番を通ったら、最後にbibiがスタート！
+  Bibi.start({
+      "books": [
+          { "file": book }
+      ],
+      "disable-copy": true,
+      "trust-all-content": true
+  });
 </script>
 	</head>
 

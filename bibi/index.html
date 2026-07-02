@@ -28,19 +28,37 @@
 
 
  <!-- ここから僕の魔法だよ！ -->
-  <script>
-    Bibi.start({
-        "books": [
-            { "file": "../bibi-bookshelf/ep1.epub" },
-            { "file": "../bibi-bookshelf/ep2.epub", "password": "1225" },
-            // ...以下略
-        ],
-        "disable-copy": true,
-        "trust-all-content": true,
-        "password-form": { // ★ここが重要！これが鍵を開く合図だよ！
-            "placeholder": "パスワードを入力する"
-        }
-    });
+ 
+
+<script>
+  var params = new URLSearchParams(window.location.search);
+  var book = params.get("book");
+
+  // 1話はそのまま通す
+  if (book === "../bibi-bookshelf/ep1.epub") {
+      // 通過！
+  } 
+  else if (book) {
+    var correctPassword = "";
+
+    // ここを今のファイル名と完全に一致させる！
+    if (book === "../bibi-bookshelf/ep2.epub") { correctPassword = "1225"; }
+    else if (book === "../bibi-bookshelf/ep3.epub") { correctPassword = "0214mm"; }
+    else if (book === "../bibi-bookshelf/ep4.epub") { correctPassword = "5847"; }
+    else if (book === "../bibi-bookshelf/ep5.epub") { correctPassword = "6755"; }
+    else if (book === "../bibi-bookshelf/ep6.epub") { correctPassword = "7578"; }
+    else if (book === "../bibi-bookshelf/ep7.epub") { correctPassword = "1349"; }
+    else if (book === "../bibi-bookshelf/ep8.epub") { correctPassword = "7599"; }
+    else if (book === "../bibi-bookshelf/ep9.epub") { correctPassword = "9705"; }
+    else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }
+
+    // 門番起動！
+    var pw = prompt("パスワードを入力してください：");
+    if (pw !== correctPassword) {
+      alert("パスワードが違います。");
+      window.location.href = "https://hinokilove.github.io"; // 元のサイトに戻る
+    }
+  }
 </script>
 	</head>
 

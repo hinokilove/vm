@@ -1,11 +1,5 @@
 <!DOCTYPE html>
 
-Bibi.start({
-    // ...中略...
-    "disable-copy": true, // これが「コピー・保存禁止」の魔法だよ！
-    "trust-all-content": true
-});
-
 
 <html id="bibi">
 
@@ -56,7 +50,14 @@ Bibi.start({
     else if (book === "../bibi-bookshelf/ep8.epub") { correctPassword = "7599"; }
     else if (book === "../bibi-bookshelf/ep9.epub") { correctPassword = "9705"; }
     else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }
+　　
 
+
+　　Bibi.start({
+    // ...中略...
+    "disable-copy": true, // これが「コピー・保存禁止」の魔法だよ！
+    "trust-all-content": true,
+});
     // 門番起動！
     var pw = prompt("パスワードを入力してください：");
     if (pw !== correctPassword) {

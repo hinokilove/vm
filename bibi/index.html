@@ -30,32 +30,32 @@
 
 
 <script>
-  // 1. まずURLをチェックする門番の準備
+  // 1. URLからどの本かを確認
   var params = new URLSearchParams(window.location.search);
   var book = params.get("book");
-  var correctPassword = "";
 
-  // 2. パスワードの確認（ここが門番！）
-  if (book === "../bibi-bookshelf/ep2.epub") { correctPassword = "1225"; }
-    else if (book === "../bibi-bookshelf/ep3.epub") { correctPassword = "0214mm"; }
-    else if (book === "../bibi-bookshelf/ep4.epub") { correctPassword = "5847"; }
-    else if (book === "../bibi-bookshelf/ep5.epub") { correctPassword = "6755"; }
-    else if (book === "../bibi-bookshelf/ep6.epub") { correctPassword = "7578"; }
-    else if (book === "../bibi-bookshelf/ep7.epub") { correctPassword = "1349"; }
-    else if (book === "../bibi-bookshelf/ep8.epub") { correctPassword = "7599"; }
-    else if (book === "../bibi-bookshelf/ep9.epub") { correctPassword = "9705"; }
-    else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }
+  // 2. パスワードの確認（1話は無料、2話からは鍵をかける！）
+  if (book && book !== "../bibi-bookshelf/ep1.epub") {
+      var correctPassword = "";
+      if (book === "../bibi-bookshelf/ep2.epub") { correctPassword = "1225"; }
+      else if (book === "../bibi-bookshelf/ep3.epub") { correctPassword = "0214mm"; }
+      else if (book === "../bibi-bookshelf/ep4.epub") { correctPassword = "5847"; }
+      else if (book === "../bibi-bookshelf/ep5.epub") { correctPassword = "6755"; }
+      else if (book === "../bibi-bookshelf/ep6.epub") { correctPassword = "7578"; }
+      else if (book === "../bibi-bookshelf/ep7.epub") { correctPassword = "1349"; }
+      else if (book === "../bibi-bookshelf/ep8.epub") { correctPassword = "7599"; }
+      else if (book === "../bibi-bookshelf/ep9.epub") { correctPassword = "9705"; }
+      else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }
 
-      
       var pw = prompt("パスワードを入力してください：");
       if (pw !== correctPassword) {
           alert("パスワードが違います。");
-          window.location.href = "https://hinokilove.github.io/vm/bibi/index.html"; 
-          throw new Error("終了"); // これで門番が止まるよ！
+          window.location.href = "https://hinokilove.github.io/vm/bibi/index.html";
+          throw new Error("終了");
       }
   }
 
-  // 3. 門番を通ったら、最後にbibiがスタート！
+  // 3. 門番を通ったらbibiスタート！
   Bibi.start({
       "books": [
           { "file": book }
@@ -64,6 +64,8 @@
       "trust-all-content": true
   });
 </script>
+
+
 	</head>
 
 

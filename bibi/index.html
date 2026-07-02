@@ -1,25 +1,3 @@
-Bibi.start({
-    "books": [
-        // 「一つ上の階層（vm）に戻ってから、bibi-bookshelf を探してね」という指示！
-        { "file": "../bibi-bookshelf/ep1.epub" }, 
-        { "file": "../bibi-bookshelf/ep2.epub", "password": "1225" },
-        { "file": "../bibi-bookshelf/ep3.epub", "password": "pass3" },
-        { "file": "../bibi-bookshelf/ep4.epub", "password": "pass4" },
-        { "file": "../bibi-bookshelf/ep5.epub", "password": "pass5" },
-        { "file": "../bibi-bookshelf/ep6.epub", "password": "pass6" },
-        { "file": "../bibi-bookshelf/ep7.epub", "password": "pass7" },
-        { "file": "../bibi-bookshelf/ep8.epub", "password": "pass8" },
-        { "file": "../bibi-bookshelf/ep9.epub", "password": "pass9" },
-        { "file": "../bibi-bookshelf/ep10.epub", "password": "pass10" }
-    ],
-    "disable-copy": true,
-    "trust-all-content": true
-});
-
-
-
-
-
 <!DOCTYPE html>
 
 
@@ -45,6 +23,29 @@ Bibi.start({
 		<link id="bibi-dress" rel="stylesheet" href="wardrobe/everyday/bibi.dress.css" />
 		<script id="bibi-script" src="resources/scripts/bibi.js"></script>
 		<script id="bibi-preset" src="presets/default.js" data-bibi-bookshelf=""></script>
+
+
+
+
+ <!-- ここから僕の魔法だよ！ -->
+    <script>
+        Bibi.start({
+            "books": [
+                { "file": "../bibi-bookshelf/ep1.epub" },
+                { "file": "../bibi-bookshelf/ep2.epub", "password": "1225" },
+                { "file": "../bibi-bookshelf/ep3.epub", "password": "pass3" },
+                { "file": "../bibi-bookshelf/ep4.epub", "password": "pass4" },
+                { "file": "../bibi-bookshelf/ep5.epub", "password": "pass5" },
+                { "file": "../bibi-bookshelf/ep6.epub", "password": "pass6" },
+                { "file": "../bibi-bookshelf/ep7.epub", "password": "pass7" },
+                { "file": "../bibi-bookshelf/ep8.epub", "password": "pass8" },
+                { "file": "../bibi-bookshelf/ep9.epub", "password": "pass9" },
+                { "file": "../bibi-bookshelf/ep10.epub", "password": "pass10" }
+            ],
+            "disable-copy": true
+        });
+    </script>
+</head>
 
 	</head>
 

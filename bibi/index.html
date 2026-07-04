@@ -45,12 +45,14 @@
       else if (book === "../bibi-bookshelf/ep7.epub") { correctPassword = "1349"; }
       else if (book === "../bibi-bookshelf/ep8.epub") { correctPassword = "7599"; }
       else if (book === "../bibi-bookshelf/ep9.epub") { correctPassword = "9705"; }
-      else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }
+      else if (book === "../bibi-bookshelf/ep10.epub") { correctPassword = "6952"; }  
+      else if (book === "../bibi-bookshelf/vol.1.epub") { correctPassword = "mghd4t4520"; }
+      else if (book === "../bibi-bookshelf/vol.2.epub") { correctPassword = "gyhiu54789"; }
 
       var pw = prompt("パスワードを入力してください：");
       if (pw !== correctPassword) {
           alert("パスワードが違います。");
-          window.location.href = "https://hinokilove.github.io/vm/bibi/index.html";
+          window.location.href = "https://hinokilove.stores.jp/";
           throw new Error("終了");
       }
   }
